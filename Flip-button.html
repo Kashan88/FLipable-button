@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+          margin: 0;
+          padding: 0;
+  height: 100vh;
+  display: flex;
+  background: #1e1e24;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.flip{
+  opacity: 1;
+  outline: 0;
+  color: #fff;
+  line-height: 40px;
+  position: relative;
+  text-align: center;
+  letter-spacing: 1px;
+  display: inline-block;
+  text-decoration: none;
+  font-family: 'Open Sans';
+  text-transform: uppercase;
+  
+  &:hover{
+    
+    &:after{
+      opacity: 1;
+      transform: translateY(0) rotateX(0);
+    }
+    
+    &:before{
+      opacity: 0;
+      transform: translateY(50%) rotateX(90deg);
+    }
+  }
+  
+  &:after{
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    color: rgb(245, 18, 94);
+    display: block;
+    transition: .5s;
+    
+    position: absolute;
+    background: white;
+    content: attr(data-back);
+    transform: translateY(-50%) rotateX(90deg);
+  }
+  
+  &:before{
+    top: 0;
+    left: 0;
+    opacity: 1;
+    color: white;
+    display: block;
+    padding: 0 30px;
+    line-height: 40px;
+    transition: .5s;
+    position: relative;
+    background: rgb(245, 18, 94);
+    content: attr(data-front);
+    transform: translateY(0) rotateX(0);
+  }
+}
+    </style>
+</head>
+<body>
+<div class="wrapper">
+  <a href="" class="flip"
+  data-back="&#8594"
+  data-front="Learn More"></a>
+</div>
+    <script src="https://kit.fontawesome.com/24021351c3.js" crossorigin="anonymous"></script>
+</body>
+</html>
